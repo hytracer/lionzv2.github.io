@@ -1,2 +1,1 @@
-# lionzv2.github.io
-site
+Simple personal website 
