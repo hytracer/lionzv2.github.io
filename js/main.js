@@ -13,5 +13,5 @@ var keys = '';
 window.addEventListener('keypress', function (e) {
     keys += `${e.charCode}+`;
     console.log(keys);
-    if (keys == '107+121+117+119+117+') window.location.replace('https://youtu.be/dQw4w9WgXcQ');
+    if (keys == '108+105+111+110+122+') window.location.replace('https://www.youtube.com/watch?v=6TvDugvV4uQ');
 });
