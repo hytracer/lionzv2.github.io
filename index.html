@@ -18,13 +18,61 @@
 <!-- main -->
 
 <body>
+
+  <style>
+    .scroll-left {
+     height: 40px;	
+     overflow: hidden;
+     position: relative;
+     color: fuchsia;
+     opacity: 0.7;
+     font-size: 15px;
+    }
+    .scroll-left p {
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     margin: 0;
+     line-height: 50px;
+     text-align: center;
+     /* Starting position */
+     transform:translateX(100%);
+     /* Apply animation to this element */
+     animation: scroll-left 15s linear 1;
+    }
+    /* Move it (define the animation) */
+    @keyframes scroll-left {
+     0%   {
+     transform: translateX(100%); 		
+     }
+     100% {
+     transform: translateX(-100%); 
+     }
+    }
+    </style>
+    
+    <div class="scroll-left">
+    <p>Join the Discord to view any new changes being made to the site!</p>
+    </div>
     
   <div id="particles-js"></div>
   <main class="content">
     <div class="container">
 
       <div class="page-center home">
-        <img src=img/ezgif-5-8fc113484f.gif href="./index.html" width="148" height="120"> 
+        <script>
+          function toggleImage() {
+             var img1 = "https://i.imgur.com/xa1ZnZz.gif";
+             var img2 = "https://i.imgur.com/g0VnzdB.gif";
+             
+             
+             
+             var imgElement = document.getElementById('toggleImage');
+          
+             imgElement.src = (imgElement.src === img1)? img2 : img1;
+          }
+          </script>
+          <img src="https://i.imgur.com/xa1ZnZz.gif" id="toggleImage" onclick="toggleImage();" width="148" height="120"/>
           
          
        </a>
@@ -70,6 +118,8 @@
   </main>
 
   <!-- end main -->
+
+<!--<marquee behavior="scroll" direction="left"><img src="//www.html.am/images/html-codes/marquees/fish-swimming.gif" width="94" height="88" alt="Swimming fish" /></marquee>-->
 
   <footer class="py-3">
       <h5 class="socials"><center>
