@@ -13,12 +13,12 @@
   <link rel="stylesheet" media="screen" href="./css/menu.css">
   <link rel="stylesheet" media="screen" href="./css/bootstrap.css">
   <link rel="icon" href="./img/cute1.png">
+  <link href='https://fonts.googleapis.com/css?family=Lato&display=swap' rel='stylesheet' type='text/css'>
 </head>
 
 <!-- main -->
 
 <body>
-
   <style>
     .scroll-left {
      height: 40px;	
@@ -54,7 +54,10 @@
     <div class="scroll-left">
     <p>Join the Discord to view any new changes being made to the site!</p>
     </div>
-    
+    <br>
+    <br>
+    <br>
+    <br>
   <div id="particles-js"></div>
   <main class="content">
     <div class="container">
@@ -62,17 +65,25 @@
       <div class="page-center home">
         <script>
           function toggleImage() {
-             var img1 = "https://i.imgur.com/xa1ZnZz.gif";
+            var img1 = "https://i.imgur.com/xa1ZnZz.gif";
              var img2 = "https://i.imgur.com/g0VnzdB.gif";
              
              
              
              var imgElement = document.getElementById('toggleImage');
-          
+             
              imgElement.src = (imgElement.src === img1)? img2 : img1;
+
+              if(imgElement.src === img1){
+                imgElement.style.width = 148
+                imgElement.style.height= 128
+              } else {
+                imgElement.style.width = 112
+                imgElement.style.height= 112
+              }
           }
           </script>
-          <img src="https://i.imgur.com/xa1ZnZz.gif" id="toggleImage" onclick="toggleImage();" width="148" height="120"/>
+          <img src="https://i.imgur.com/xa1ZnZz.gif" id="toggleImage" onclick="toggleImage();"/>
           
          
        </a>
@@ -87,13 +98,13 @@
                 <a href="#0">Osu</a>
                 <ul class="drop">
                   <div>
-                    <li><a target="_blank" href="https://web.leeuwz.nl">osu server</a></li>
+                    <!--<li><a target="_blank" href="https://web.leeuwz.nl">osu server</a></li>-->
                     <li><a href="/playstyle.html">Playstyle</a></li>
                     <li><a href="skins.html">Skins</a></li>
-                    <li><a href="https://osucollector.com/users/13674823/uploads">Map Collections</a></li>
+                    <li><a href="https://osucollector.com/users/13674823/uploads">Collections</a></li>
                    </div>
                 </ul>
-                <li><a target="_blank" href="https://discord.gg/W6X7JFj">Discord</a></li>
+                <li><a target="_blank" href="https://web.leeuwz.nl">osu server</a></li>
               <li>
                 <a href="#0">Other</a>
                 <ul class="drop">
@@ -102,9 +113,9 @@
                     <!--<li><a href="./wip.html">WIP</a></li>-->
                     <!--<li><a href="./lore.html">Lionz Lore</a></li>-->
                     <!--<li><a href="https://mc.leeuwz.nl">Minecraft</a></li>-->
-                    <!--<li><a href="https://discord.gg/W6X7JFj">Discord</a></li>-->
+                    <li><a href="https://discord.gg/W6X7JFj">Discord</a></li>
                     <!--<li><a href="/cutie.html">Cutie List</a></li>-->
-                    <li><a href="/clown.html">Hall of shame</a></li>
+                    <li><a href="/clown.html">Hall of Shame</a></li>
                     <!--<li><a href="https://kyuwu.com">Pasted from</a></li>-->
                     <!--<li><a href="/blog.html" onClick="return confirm('WIP lmaooo, check back later or join the Discord for update notifications!')" class="external" target="_blank">Blog</a></li>-->
                     </div>
@@ -117,7 +128,163 @@
       </div>
     </div>
   </main>
+ <!--Music Player-->
+  <style>
+    .music-container {
+    background-color: #bb085c60;
+    border-radius: 15px;
+    box-shadow: 0 20px 20px 0 #ff00ff11;
+    display: flex;
+    padding: 10px 30px;
+    position: relative;
+    margin: 50px 700px;
+    z-index: 10;
+  }
+  
+  .img-container {
+    position: relative;
+    width: 110px;
+  }
+  
+  .img-container::after {
+    content: '';
+    background-color: #bb085c00;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%, 50%);
+  }
+  
+  .img-container img {
+    border-radius: 100%;
+    object-fit: cover;
+    height: 110px;
+    width: inherit;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: rotate 3s linear infinite;
+  
+    animation-play-state: paused;
+  }
+  
+  .music-container.play .img-container img {
+    animation-play-state: running;
+  }
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+  
+  .action-btn {
+    background-color: #bb085c00;
+    border: 0;
+    color: #dfdbdf;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0 20px;
+  }
+  
+  .action-btn.action-btn-big {
+    color: #cdc2d0;
+    font-size: 30px;
+  }
+  
+  .action-btn:focus {
+    outline: 0;
+  }
+  
+  .music-info {
+    font-family: 'Lato', sans-serif;
+    background-color: #bb085c60;
+    border-radius: 15px 15px 0 0;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: calc(100% - 40px);
+    padding: 7px 0px 10px 110px;
+    opacity: 0;
+    transform: translateY(0%);
+    transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+    z-index: 0;
+  }
+  
+  .music-container.play .music-info {
+    opacity: 1;
+    transform: translateY(-100%);
+  }
+  
+  .music-info h4 {
+    font-size: 20px;
+    color: fuchsia;
+    margin: 0;
+  }
+  
+  .progress-container {
+    background: #bb085c60;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 10px;
+    height: 4px;
+    width: 90%;
+  }
+  
+  .progress {
+    background-color: #ee49e6;
+    border-radius: 4px;
+    height: 100%;
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+  </style>
+  <link rel="stylesheet" href="main.css" />
+    <div class="music-container" id="music-container">
+      <div class="music-info">
+        <h4 id="title"></h4>
+        <div class="progress-container" id="progress-container">
+          <div class="progress" id="progress"></div>
+        </div>
+      </div>
 
+      <audio src="music/Masquerade.mp3" id="audio"></audio>
+      <script>
+      var vid = document.getElementById("audio");
+        vid.volume = 0.2;
+        </script>
+      
+
+      <div class="img-container">
+        <img src="images/Masquerade.jpg" alt="music-cover" id="cover" />
+      </div>
+      <div class="navigation">
+        <button id="prev" class="action-btn">
+          <i class="fas fa-backward"></i>
+        </button>
+        <button id="play" class="action-btn action-btn-big">
+          <i class="fas fa-play"></i>
+        </button>
+        <button id="next" class="action-btn">
+          <i class="fas fa-forward"></i>
+        </button>
+      </div>
+    </div>
   <!-- end main -->
 
 <!--<marquee behavior="scroll" direction="left"><img src="//www.html.am/images/html-codes/marquees/fish-swimming.gif" width="94" height="88" alt="Swimming fish" /></marquee>-->
@@ -147,8 +314,10 @@
 
   </script>
   <script src="https://kit.fontawesome.com/d857ded9dd.js" crossorigin="anonymous"></script>
+  <script src="https://fonts.googleapis.com/css?family=Lato&display=swap"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="script.js"></script>
   <!-- end imports -->
 </body>
 
