@@ -13,7 +13,7 @@ const durTime = document.querySelector('#durTime');
 
 
 // Song titles
-const songs = ['Juice WRLD - Not Enough🎶', 'Beebo - Delilah🎶', 'Siouxxie - Masquerade🎶'];
+const songs = ['Juice WRLD - Not Enough🎶', 'Beebo - Delilah🎶', 'Siouxxie - Masquerade🎶', 'Egor - Sindrom Spasatelya🎶', 'rizza - Quinn🎶'];
 
 // Keep track of song
 let songIndex = 2;
